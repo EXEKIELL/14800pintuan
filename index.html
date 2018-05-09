@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/resize.js" ></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="bj">
+            <img :src="bigImg" alt="">
+            <div class="form">
+                <form action="">
+                    <div class="name">
+                        <span></span>
+                        <input type="text" v-model="formData.name" placeholder="请输入您的姓名">
+                    </div>
+                    <div class="phone">
+                        <span></span>
+                        <input type="text" v-model="formData.phone" placeholder="请输入您的号码">
+                    </div>
+                    <div class="address" v-if="true">
+                        <div class="province">
+                            <input type="text" v-model="formData.province" disabled>
+                            <i></i>
+                            <select name="province" id="province">
+                                <option value="A">省</option>
+                            </select>
+                        </div>
+                        <div class="city">
+                            <input type="text" v-model="formData.city" disabled>
+                            <i></i>
+                            <select name="province" id="city">
+                                <option value="A">市</option>
+                            </select>
+                        </div>
+                        <div class="district">
+                            <input type="text" v-model="formData.district" disabled>
+                            <i></i>
+                            <select name="province" id="district">
+                                <option value="A">区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div>抢先预约</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                bigImg:'img/bj01.png',
+                formData:{
+                    name:'',
+                    phone:'',
+                    province:'选择省份',
+                    city:'选择城市',
+                    district:'选择区域'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
