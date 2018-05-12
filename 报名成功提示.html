@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>报名成功</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/successPage.css">
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    if(clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+
+            if(!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="successPage">
+        <div class="list1">
+            <div class="l1-1">
+                <div>
+                    <img src="img/icon05.png" alt="">
+                </div>
+                <div>
+                    <span>拼单成功</span>
+                </div>
+            </div>
+            <div class="l1-2">
+                <p>14800买两房两厅全屋定制家具VIP限量电子抵用券已发放到您的手机。</p>
+                <p>↓↓↓请长按下方图片保存↓↓↓</p>
+            </div>
+        </div>
+        <div class="list2">
+            <div class="l2-1">
+                <div>
+                    <div>
+                        <img src="img/erweima.png" alt="">
+                    </div>
+                    <div>
+                        <div>长按识别二维码</div>
+                        <div>和30万人一起</div>
+                        <div>免费查看最新家装案例</div>
+                    </div>
+                </div>
+            </div>
+            <div class="l2-2">
+                <img src="img/img02.png"  alt="">
+                <div class="showImg" >
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="l2-3">
+                <span>~长按上方图片保存到手机，使用时需出示给门店~</span>
+            </div>
+        </div>
+        <canvas hidden  id="canv" width="600" height="450"></canvas>
+    </div>
+    <script src="js/publish.js"></script>
+    <script>
+        $(function () {
+            showYear('canv','编号：2X3178')
+
+        })
+    </script>
+</body>
+</html>

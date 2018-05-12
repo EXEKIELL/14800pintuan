@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>支付</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/pay.css">
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    if(clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+
+            if(!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="pay">
+        <div class="list1">
+            <div class="l1-1">
+                <div>
+                    <div>
+                        <img src="img/img02.png" alt="">
+                    </div>
+                    <div>
+                        <div>14800买两房两厅全屋定制家具VIP限量电子券</div>
+                        <div>￥0.00/件</div>
+                    </div>
+                </div>
+            </div>
+            <div class="l1-2">
+                <div>购买数量</div>
+                <div>
+                    <div class="jian">-</div>
+                    <input type="number" class="count" value="1">
+                    <div class="jia">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="list2">
+            <div class="l2-1">
+                <div>
+                    <div>
+                        <div>
+                            <img src="img/head01.png" alt="">
+                            <span>拼主</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span>仅剩<span>1</span>个名额  23:54:16.1后结束</span>
+                </div>
+            </div>
+            <div class="l2-2">
+                <ul>
+                    <li>
+                        <div>领券人姓名</div>
+                        <div>
+                            <input type="text" placeholder="录入拼团用户系统名单">
+                        </div>
+                    </li>
+                    <li>
+                        <div>领券人电话</div>
+                        <div>
+                            <input type="text" placeholder="方便客户沟通拼团名额确认">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <div>
+                <div>
+                    <span>实付款：</span>
+                    <span class="num">￥0.00</span>
+                    <span>电子券</span>
+                    <span>免运费</span>
+                </div>
+            </div>
+            <div class="payBtn">
+                <span>立即参与</span>
+            </div>
+        </div>
+    </div>
+    <div id="mask1">
+        <div>
+            <div>
+                <img src="img/icon08.png" alt="">
+            </div>
+            <div>
+                <span>拼单已发起，人满后立即发货</span>
+            </div>
+            <div>
+                <span>还差<span>1</span>人，点击右上角发送给朋友</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.payBtn').click(function () {
+                $('#mask1').css({
+                    display:'flex'
+                })
+            })
+            $('#mask1').click(function () {
+                $('#mask1').css({
+                    display:'none'
+                })
+            })
+            $('.jian').click(function () {
+                var count = parseInt($('.count').val());
+                if(count>1){
+                    count-=1;
+                    $('.count').val(count)
+                }else{
+                    $('.count').text(1)
+                }
+            })
+            $('.jia').click(function () {
+                var count = parseInt($('.count').val());
+                if(count>0){
+                    count+=1;
+                    $('.count').val(count)
+                }else{
+                    $('.count').text(1)
+                }
+            })
+            $('.count').focusout(function () {
+                if($(this).val() == ''){
+                    $(this).val(1)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

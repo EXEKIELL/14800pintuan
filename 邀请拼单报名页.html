@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>邀请拼单报名页</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/invite.css">
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    if(clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+
+            if(!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="maskInvite">
+        <div>
+            <img class="delImg" src="img/invite.png" alt="">
+            <span>点击右上角邀请好友来拼单！</span>
+        </div>
+    </div>
+    <div id="maskErWei">
+        <div>
+            <div class="ma-top">
+                <div>
+                    <img src="img/erweima.png" alt="">
+                </div>
+            </div>
+            <div class="ma-bottom">
+                <div><span>长按识别二维码</span></div>
+                <div><span>接收拼单进度信息</span></div>
+            </div>
+        </div>
+    </div>
+    <div id="invite">
+        <div class="list1">
+            <div class="l1-1">
+                <input type="text" value="23：59：51.0">
+            </div>
+            <div class="l1-2">
+                <span>还差<span class="peoNum">1</span>人，点击右上角发送给朋友</span>
+            </div>
+            <div class="l1-3">
+                <button>邀请好友拼单</button>
+            </div>
+        </div>
+        <div class="list2">
+            <div class="l2-1">
+                <div>
+                    <div>
+                        <img src="img/head01.png" alt="">
+                        <span>拼主</span>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="l2-2">
+                <ul>
+                    <li>
+                        <div>商品名称</div>
+                        <div>
+                            <p>14800买两房两厅全屋房房两厅全屋房两厅全屋房两厅全屋两厅全屋房两厅全屋房两厅全屋定制家具VIP限量...</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>拼单须知</div>
+                        <div>
+                            <p>好友拼单·人满发货·人不满退货</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.delImg').click(function () {
+                return false
+            })
+            $('.l1-3 button').click(function () {
+                $('#maskInvite').css({
+                    display:'flex'
+                })
+            })
+            $('#maskInvite').click(function () {
+                $('#maskInvite').css({
+                    display:'none'
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

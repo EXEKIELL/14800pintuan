@@ -3,69 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>Title</title>
+    <title>专题首页</title>
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="js/resize.js" ></script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/vue.min.js"></script>
 </head>
 <body>
-    <div id="app">
-        <div class="bj">
-            <img :src="bigImg" alt="">
-            <div class="form">
-                <form action="">
-                    <div class="name">
-                        <span></span>
-                        <input type="text" v-model="formData.name" placeholder="请输入您的姓名">
-                    </div>
-                    <div class="phone">
-                        <span></span>
-                        <input type="text" v-model="formData.phone" placeholder="请输入您的号码">
-                    </div>
-                    <div class="address" v-if="true">
-                        <div class="province">
-                            <input type="text" v-model="formData.province" disabled>
-                            <i></i>
-                            <select name="province" id="province">
-                                <option value="A">省</option>
-                            </select>
-                        </div>
-                        <div class="city">
-                            <input type="text" v-model="formData.city" disabled>
-                            <i></i>
-                            <select name="province" id="city">
-                                <option value="A">市</option>
-                            </select>
-                        </div>
-                        <div class="district">
-                            <input type="text" v-model="formData.district" disabled>
-                            <i></i>
-                            <select name="province" id="district">
-                                <option value="A">区</option>
-                            </select>
+    <div id="App">
+        <div id="index" >
+            <div class="list1">
+                <div class="swiper-container" style="width: 100%">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" v-for="(item,index) in imgs" :key="index">
+                            <img :src="item.src" alt="">
                         </div>
                     </div>
-                    <div class="btn">
-                        <div>抢先预约</div>
+                    <div class="swiper-pagination"></div>
+                    <div class="wrap1">
+                        <div>
+                            <img src="img/head02.png" alt="">
+                        </div>
+                        <div>
+                            <span>黄小丽40秒前发起了拼团</span>
+                        </div>
                     </div>
-                </form>
+                </div>
+            </div>
+            <div class="list2">
+                <div class="l2-1">
+                    <div>
+                        <span>￥0.00</span><span>已拼<span>1364</span>件·<span>2</span>人拼单</span>
+                    </div>
+                    <div>
+                        <p>14800买两房两厅全屋定制家具VIP限量抵用券</p>
+                    </div>
+                </div>
+                <div class="l2-2">
+                    <div>
+                        <span>诗尼曼品质保障·工厂直销</span>
+                    </div>
+                    <div>
+                        <div>
+                            <span></span><span>全场包邮</span>
+                        </div>
+                        <div>
+                            <span></span><span>48小时发货</span>
+                        </div>
+                        <div>
+                            <span></span><span>假一赔十</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list3">
+                <div>
+                    <span>67人在拼团，可直接参与</span><span>查看更多</span>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <div>
+                                <div>
+                                    <img src="img/head03.png" alt="">
+                                </div>
+                                <div>
+                                    <span>黄小丽</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <span>还差<span>1</span>人拼成</span>
+                                    </div>
+                                    <div>
+                                        <span>剩余23:57:26</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>去拼单</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div>
+                                    <img src="img/head03.png" alt="">
+                                </div>
+                                <div>
+                                    <span>黄小丽</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <span>还差<span>1</span>人拼成</span>
+                                    </div>
+                                    <div>
+                                        <span>剩余23:57:26</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>去拼单</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list4">
+                <div class="l4-1">
+                    <span>图文详情</span>
+                </div>
+                <div class="l4-2">
+                    <p>1张VIP限量抵用券<span>=</span>1个抵用特权<span>+</span>1个14800买两房两厅全屋定制家具限量名额</p>
+                </div>
+                <div class="l4-3">
+                    <ul>
+                        <li>
+                            <div>
+                                <div>
+                                    <span class="span1">VIP特权1</span><span class="span2">超值抵用，爽翻天</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div>凭VIP限量抵用券，交100可抵300元。</div>
+                                <div>
+                                    <p>本优惠需实付满8000元可享受，且不与门店其他抵用优惠同时使用</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div>
+                                    <span class="span1">VIP特权2</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div>14800买两房两厅全屋定制家具限量名额</div>
+                                <div>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="l4-4">
+                    <img src="img/img03.png" alt="">
+                </div>
             </div>
         </div>
     </div>
+    <script src="js/swiper.min.js"></script>
     <script>
-        var app = new Vue({
-            el:'#app',
+        var App = new Vue({
+            el:'#App',
             data:{
-                bigImg:'img/bj01.png',
-                formData:{
-                    name:'',
-                    phone:'',
-                    province:'选择省份',
-                    city:'选择城市',
-                    district:'选择区域'
-                }
+                imgs:[
+                    {src:'img/banner.png'},
+                    {src:'img/banner.png'},
+                    {src:'img/banner.png'},
+                    {src:'img/banner.png'},
+                    {src:'img/banner.png'}
+                ]
+            },
+            mounted(){
+                var mySwiper = new Swiper('.swiper-container',{
+                    pagination:{
+                        el:'.swiper-pagination',
+                        type:'fraction'
+                    }
+                })
             }
         })
     </script>

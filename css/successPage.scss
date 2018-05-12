@@ -1,0 +1,108 @@
+body{
+  background-color: #f6f6f6;
+}
+#successPage{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .list1{
+    background-color: #ff8276;
+    text-align: center;
+    padding-top: 0.6rem;
+    height: 6rem;
+    .l1-1{
+      margin-bottom: 0.2rem;
+      >div:first-child{
+        img{
+          width: 0.9rem;
+          height: 0.9rem;
+          margin: auto;
+        }
+      }
+      >div{
+        font-size: 0.3rem;
+        color: #ffffff;
+      }
+    }
+    .l1-2{
+      width: 80%;
+      margin: auto;
+      p{
+        font-size: 0.26rem;
+        color: #ffffff;
+        line-height: 0.5rem;
+        margin-bottom: 0.05rem;
+      }
+    }
+  }
+  .list2{
+    background-color: #fff;
+    width: 95%;
+    margin: auto;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    margin-top: -2.5rem;
+    margin-bottom: 0.4rem;
+    -webkit-box-shadow: 0 0 10px #e4e4e4 ;
+    -moz-box-shadow: 0 0 10px #e4e4e4 ;
+    box-shadow: 0 1px 1px #e4e4e4 ;
+    >div{
+      border: 1px solid #e4e4e4;
+    }
+    .l2-1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.4rem 0.7rem;
+      margin-bottom: 0.2rem;
+      >div{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        >div{
+          width: 37%;
+          font-size: 0.26rem;
+
+        }
+        >div:first-child{
+          border: 1px solid #e4e4e4;
+          padding: 0.1rem 0;
+          img{
+            width: 90%;
+            margin: auto;
+          }
+        }
+        >div:last-child{
+          width: 53%;
+          div{
+            margin-bottom: 0.2rem;
+          }
+          div:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .l2-2{
+      padding: 0.2rem;
+      margin-bottom: 0.3rem;
+      position: relative;
+      img{
+        width: 100%;
+      }
+      .showImg{
+        padding: 0.2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    .l2-3{
+      border: 0;
+      font-size: 0.26rem;
+      color: #333333;
+      text-align: center;
+    }
+  }
+}
