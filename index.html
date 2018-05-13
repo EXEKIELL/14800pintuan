@@ -7,13 +7,33 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <script type="text/javascript" src="js/resize.js" ></script>
+    <!--rem单位-->
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    if(clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    }
+                };
+
+            if(!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/vue.min.js"></script>
 </head>
 <body>
     <div id="App">
-        <div id="index" >
+        <!--首页-->
+        <div id="index" v-if="idx == 0">
             <div class="list1">
                 <div class="swiper-container" style="width: 100%">
                     <div class="swiper-wrapper">
@@ -154,30 +174,240 @@
                     <img src="img/img03.png" alt="">
                 </div>
             </div>
+            <div class="bottom">
+                <div>
+                    <div class="b1"></div>
+                    <div class="b2"></div>
+                    <div class="b3"></div>
+                    <div class="b4">
+                        <button @click="btn0">AA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--邀请页-->
+        <div id="invite" v-if="idx == 1">
+            <div class="list1">
+                <div class="l1-1">
+                    <input type="text" value="23：59：51.0">
+                </div>
+                <div class="l1-2">
+                    <span>还差<span class="peoNum">1</span>人，点击右上角发送给朋友</span>
+                </div>
+                <div class="l1-3">
+                    <button @click="invite">邀请好友拼单</button>
+                </div>
+            </div>
+            <div class="list2">
+                <div class="l2-1">
+                    <div>
+                        <div>
+                            <img src="img/head01.png" alt="">
+                            <span>拼主</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="l2-2">
+                    <ul>
+                        <li>
+                            <div>商品名称</div>
+                            <div>
+                                <p>14800买两房两厅全屋房房两厅全屋房两厅全屋房两厅全屋两厅全屋房两厅全屋房两厅全屋定制家具VIP限量...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div>拼单须知</div>
+                            <div>
+                                <p>好友拼单·人满发货·人不满退货</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--报名成功页-->
+        <div id="successPage" v-if="idx == 2">
+            <div class="list1">
+                <div class="l1-1">
+                    <div>
+                        <img src="img/icon05.png" alt="">
+                    </div>
+                    <div>
+                        <span>拼单成功</span>
+                    </div>
+                </div>
+                <div class="l1-2">
+                    <p>14800买两房两厅全屋定制家具VIP限量电子抵用券已发放到您的手机。</p>
+                    <p>↓↓↓请长按下方图片保存↓↓↓</p>
+                </div>
+            </div>
+            <div class="list2">
+                <div class="l2-1">
+                    <div>
+                        <div>
+                            <img src="img/erweima.png" alt="">
+                        </div>
+                        <div>
+                            <div>长按识别二维码</div>
+                            <div>和30万人一起</div>
+                            <div>免费查看最新家装案例</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l2-2">
+                    <img src="img/img02.png"  alt="">
+                    <div class="showImg" >
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="l2-3">
+                    <span>~长按上方图片保存到手机，使用时需出示给门店~</span>
+                </div>
+            </div>
+            <canvas hidden  id="canv" width="600" height="450"></canvas>
+        </div>
+        <!--支付页-->
+        <div id="pay" v-if="idx == 3">
+            <div class="list1">
+                <div class="l1-1">
+                    <div>
+                        <div>
+                            <img src="img/img02.png" alt="">
+                        </div>
+                        <div>
+                            <div>14800买两房两厅全屋定制家具VIP限量电子券</div>
+                            <div>￥0.00/件</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="l1-2">
+                    <div>购买数量</div>
+                    <div>
+                        <div class="jian" @click="jian">-</div>
+                        <input type="number" class="count" :value="num">
+                        <div class="jia" @click="jia">+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="list2">
+                <div class="l2-1">
+                    <div>
+                        <div>
+                            <div>
+                                <img src="img/head01.png" alt="">
+                                <span>拼主</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span>仅剩<span>1</span>个名额  23:54:16.1后结束</span>
+                    </div>
+                </div>
+                <div class="l2-2">
+                    <ul>
+                        <li>
+                            <div>领券人姓名</div>
+                            <div>
+                                <input type="text" placeholder="录入拼团用户系统名单">
+                            </div>
+                        </li>
+                        <li>
+                            <div>领券人电话</div>
+                            <div>
+                                <input type="text" placeholder="方便客户沟通拼团名额确认">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottom">
+                <div>
+                    <div>
+                        <span>实付款：</span>
+                        <span class="num">￥0.00</span>
+                        <span>电子券</span>
+                        <span>免运费</span>
+                    </div>
+                </div>
+                <div class="payBtn" @click="btn3">
+                    <span>立即参与</span>
+                </div>
+            </div>
+        </div>
+        <!--弹窗类-->
+        <!--邀请弹窗-->
+        <div id="maskInvite" v-if="maskInvite" @click="close">
+            <div>
+                <img class="delImg" src="img/invite.png" alt="">
+                <span>点击右上角邀请好友来拼单！</span>
+            </div>
+        </div>
+        <div id="maskErWei" v-if="maskErWei">
+            <div>
+                <div class="ma-top">
+                    <div>
+                        <img src="img/erweima.png" alt="">
+                    </div>
+                </div>
+                <div class="ma-bottom">
+                    <div><span>长按识别二维码</span></div>
+                    <div><span>接收拼单进度信息</span></div>
+                </div>
+            </div>
+        </div>
+        <!--支付弹窗-->
+        <div id="mask1" @click="close" v-if="mask1">
+            <div>
+                <div>
+                    <img src="img/icon08.png" alt="">
+                </div>
+                <div>
+                    <span>拼单已发起，人满后立即发货</span>
+                </div>
+                <div>
+                    <span>还差<span>1</span>人，点击右上角发送给朋友</span>
+                </div>
+            </div>
         </div>
     </div>
     <script src="js/swiper.min.js"></script>
-    <script>
-        var App = new Vue({
-            el:'#App',
-            data:{
-                imgs:[
-                    {src:'img/banner.png'},
-                    {src:'img/banner.png'},
-                    {src:'img/banner.png'},
-                    {src:'img/banner.png'},
-                    {src:'img/banner.png'}
-                ]
-            },
-            mounted(){
-                var mySwiper = new Swiper('.swiper-container',{
-                    pagination:{
-                        el:'.swiper-pagination',
-                        type:'fraction'
-                    }
-                })
-            }
-        })
-    </script>
+    <script src="js/public.js"></script>
+    <!--last-->
+    <script src="js/onLoad.js"></script>
 </body>
 </html>
