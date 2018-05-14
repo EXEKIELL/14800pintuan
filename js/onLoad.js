@@ -2,7 +2,7 @@ var App = new Vue({
     el:'#App',
     data:{
         //显示状态
-        idx:1,
+        idx:0,
         //banner图
         imgs:[
             {src:'img/banner.png'},
@@ -33,12 +33,16 @@ var App = new Vue({
         },
         btn01(){
             this.popUp = 3
+            //禁止页面滑动
+            stop();
         },
         btn3(){
             this.mask1 = true
         },
         close1(){
             this.popUp = 0
+            //解除禁止滑动
+            move();
         },
         invite(){
             //邀请点击右上角弹窗
@@ -69,40 +73,6 @@ var App = new Vue({
                 this.num = 1
             }
         },
-        daojishi(){
-            let ms = 9,
-                s = 59,
-                min = 59,
-                h = 23
-            const that = this
-            this.timer1 = setInterval(function () {
-                that.time = h+':'+min+':'+s+':'+ms
-                if(ms>0){
-                    ms--;
-                }else{
-                    ms = 9;
-                    if(s>55){
-                        s--;
-                        console.log(2)
-                    }else{
-                        console.log(1)
-                        clearInterval(that.timer1)
-
-                        // s = 59;
-                        // if(min>0){
-                        //     min--;
-                        // }else{
-                        //     min = 59
-                        //     if(h>0){
-                        //         h--;
-                        //     }else{
-                        //         clearInterval(that.timer1)
-                        //     }
-                        // }
-                    }
-                }
-            },100)
-        }
     },
     filters:{
     },
