@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
-                    <div class="wrap1">
+                    <div class="wrap1" v-show="show1">
                         <div>
                             <img src="img/head02.png" alt="">
                         </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="list3">
                 <div>
-                    <span>67人在拼团，可直接参与</span><span>查看更多</span>
+                    <span>67人在拼团，可直接参与</span><span @click="btn01">查看更多</span>
                 </div>
                 <div>
                     <ul>
@@ -198,7 +198,7 @@
         <div id="invite" v-if="idx == 1">
             <div class="list1">
                 <div class="l1-1">
-                    <input type="text" value="23：59：51.0">
+                    <input type="text" :value="time" disabled>
                 </div>
                 <div class="l1-2">
                     <span>还差<span class="peoNum">1</span>人，点击右上角发送给朋友</span>
@@ -381,7 +381,7 @@
 
         <!--弹窗类-->
         <!--首页弹窗-->
-        <div id="popUp1" v-if="popUp1">
+        <div id="popUp1" v-if="popUp == 1">
             <div class="wrap">
                 <div>
                     <div class="d1">
@@ -397,8 +397,9 @@
                     </div>
                 </div>
             </div>
+            <div class="close" @click="close1"></div>
         </div>
-        <div id="popUp2" v-if="popUp2">
+        <div id="popUp2" v-if="popUp == 2">
             <div class="wrap">
                 <div class="d1">
                     <div>参与黄小丽的拼单</div>
@@ -417,8 +418,9 @@
                     <button>参与拼团</button>
                 </div>
             </div>
+            <div class="close" @click="close1"></div>
         </div>
-        <div id="popUp3" v-if="popUp3">
+        <div id="popUp3" v-if="popUp == 3">
             <div class="wrap">
                 <div class="d1">
                     <div>正在拼单</div>
@@ -476,8 +478,8 @@
                 <div class="d3">
                     <span>仅显示5个正在拼单的人</span>
                 </div>
-                <div class="close"></div>
             </div>
+            <div class="close" @click="close1"></div>
         </div>
         <!--邀请弹窗-->
         <div id="maskInvite" v-if="maskInvite" @click="close">
@@ -514,6 +516,7 @@
             </div>
         </div>
     </div>
+
     <script src="js/swiper.min.js"></script>
     <script src="js/public.js"></script>
     <!--last-->

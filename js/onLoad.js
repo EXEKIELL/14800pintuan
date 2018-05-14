@@ -2,7 +2,7 @@ var App = new Vue({
     el:'#App',
     data:{
         //显示状态
-        idx:0,
+        idx:1,
         //banner图
         imgs:[
             {src:'img/banner.png'},
@@ -13,31 +13,39 @@ var App = new Vue({
         ],
         //购买数量
         num:1,
+        value1:0,
         //首页弹窗状态
-        popUp1:false,
-        popUp2:false,
-        popUp3:false,
+        popUp:0,
         //邀请弹窗状态
         maskInvite:false,
         maskErWei:false,
         //支付弹窗状态
         mask1:false,
         //用于检测dom更新的状态
-        domFlash:0
+        domFlash:0,
+        time:0,
+        timer1:null,
+        show1:false
     },
     methods:{
         btn0(){
             this.idx = 1
         },
+        btn01(){
+            this.popUp = 3
+        },
         btn3(){
             this.mask1 = true
+        },
+        close1(){
+            this.popUp = 0
         },
         invite(){
             //邀请点击右上角弹窗
             // this.maskInvite = true
             //邀请二维码弹窗
             // this.maskErWei = true
-            this.idx = 2
+            // this.idx = 2
         },
         close(){
             var id = event.target.id
@@ -60,7 +68,43 @@ var App = new Vue({
             }else{
                 this.num = 1
             }
+        },
+        daojishi(){
+            let ms = 9,
+                s = 59,
+                min = 59,
+                h = 23
+            const that = this
+            this.timer1 = setInterval(function () {
+                that.time = h+':'+min+':'+s+':'+ms
+                if(ms>0){
+                    ms--;
+                }else{
+                    ms = 9;
+                    if(s>55){
+                        s--;
+                        console.log(2)
+                    }else{
+                        console.log(1)
+                        clearInterval(that.timer1)
+
+                        // s = 59;
+                        // if(min>0){
+                        //     min--;
+                        // }else{
+                        //     min = 59
+                        //     if(h>0){
+                        //         h--;
+                        //     }else{
+                        //         clearInterval(that.timer1)
+                        //     }
+                        // }
+                    }
+                }
+            },100)
         }
+    },
+    filters:{
     },
     watch:{
         domFlash:function () {
@@ -72,8 +116,12 @@ var App = new Vue({
     },
     updated(){
         //dom更新后执行方法
+        const that = this
         this.$nextTick(function () {
             this.domFlash = this.idx
+            $('#popUp1,#popUp2,#popUp3,#maskInvite,#maskErWei,#mask1').css({
+                display:'flex'
+            })
         })
     },
     mounted(){
@@ -86,10 +134,19 @@ var App = new Vue({
                 type:'fraction'
             }
         })
-
         //取消图片点击事件
         $('.delImg').click(function () {
             return false
+        })
+        this.$nextTick(function () {
+            setTimeout(function () {
+                $("#index .wrap1").fadeIn("slow","linear");
+                setTimeout(function () {
+                    $("#index .wrap1").fadeOut("slow","linear");
+                },2500)
+            },1000)
+            const that = this
+            this.timer1 = setInterval(countDown(23,59,59,9,that),500)
         })
     }
 })

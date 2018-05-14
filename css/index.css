@@ -27,15 +27,15 @@ body {
         left: 0.5rem;
         z-index: 10;
         font-size: 0.26rem;
-        color: #333333;
         display: flex;
         align-items: center;
         justify-content: left;
         height: 0.75rem;
-        background-color: #fff;
+        background-color: rgba(0, 0, 0, 0.2);
         -webkit-border-radius: 0 0.75rem 0.75rem 0;
         -moz-border-radius: 0 0.75rem 0.75rem 0;
-        border-radius: 0 0.75rem 0.75rem 0; }
+        border-radius: 0 0.75rem 0.75rem 0;
+        color: #ffffff; }
         #App #index .list1 .swiper-container .wrap1 > div:first-child {
           height: 100%;
           position: absolute;
@@ -121,11 +121,17 @@ body {
         #App #index .list3 > div:nth-child(2) > ul > li > div:first-child > div:first-child {
           width: 0.8rem;
           height: 0.8rem;
-          margin-right: 0.2rem; }
+          margin-right: 0.2rem;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          overflow: hidden; }
           #App #index .list3 > div:nth-child(2) > ul > li > div:first-child > div:first-child img {
             width: 100%; }
-        #App #index .list3 > div:nth-child(2) > ul > li > div:last-child > div:first-child > div:first-child > span span {
-          color: #ff0000; }
+        #App #index .list3 > div:nth-child(2) > ul > li > div:last-child > div:first-child > div:first-child {
+          margin-bottom: 0.06rem; }
+          #App #index .list3 > div:nth-child(2) > ul > li > div:last-child > div:first-child > div:first-child > span span {
+            color: #ff0000; }
         #App #index .list3 > div:nth-child(2) > ul > li > div:last-child > div:first-child > div:last-child {
           font-size: 0.22rem;
           color: #888888; }
@@ -267,7 +273,8 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
-    display: flex;
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5); }
@@ -283,7 +290,8 @@ body {
         border: 1px solid #e4e4e4;
         -webkit-border-radius: 0.1rem;
         -moz-border-radius: 0.1rem;
-        border-radius: 0.1rem; }
+        border-radius: 0.1rem;
+        position: relative; }
         #App #popUp1 .wrap > div .d1 {
           font-size: 0.3rem;
           color: #333333;
@@ -312,6 +320,12 @@ body {
           -webkit-box-shadow: 0 2px 5px #e4e4e4;
           -moz-box-shadow: 0 2px 5px #e4e4e4;
           box-shadow: 0 2px 5px #e4e4e4; }
+    #App #popUp1 .close {
+      width: 0.8rem;
+      height: 0.8rem;
+      margin-top: 0.5rem;
+      background: url("../img/icon12.png") no-repeat;
+      background-size: 100% 100%; }
   #App #popUp2 {
     position: fixed;
     width: 100%;
@@ -319,7 +333,8 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
-    display: flex;
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5); }
@@ -385,6 +400,12 @@ body {
         -webkit-box-shadow: 0 2px 5px #e4e4e4;
         -moz-box-shadow: 0 2px 5px #e4e4e4;
         box-shadow: 0 2px 5px #e4e4e4; }
+    #App #popUp2 .close {
+      width: 0.8rem;
+      height: 0.8rem;
+      margin-top: 0.5rem;
+      background: url("../img/icon12.png") no-repeat;
+      background-size: 100% 100%; }
   #App #popUp3 {
     position: fixed;
     width: 100%;
@@ -392,7 +413,8 @@ body {
     top: 0;
     left: 0;
     z-index: 100;
-    display: flex;
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5); }
@@ -453,13 +475,19 @@ body {
             #App #popUp3 .wrap .d2 > ul > li > div:first-child > div:first-child {
               width: 0.8rem;
               height: 0.8rem;
-              margin-right: 0.2rem; }
+              margin-right: 0.2rem;
+              overflow: hidden;
+              -webkit-border-radius: 50%;
+              -moz-border-radius: 50%;
+              border-radius: 50%; }
               #App #popUp3 .wrap .d2 > ul > li > div:first-child > div:first-child img {
                 width: 100%; }
           #App #popUp3 .wrap .d2 > ul > li > div:last-child > div:first-child {
             margin-right: 0.1rem; }
-            #App #popUp3 .wrap .d2 > ul > li > div:last-child > div:first-child > div:first-child > span span {
-              color: #ff0000; }
+            #App #popUp3 .wrap .d2 > ul > li > div:last-child > div:first-child > div:first-child {
+              margin-bottom: 0.05rem; }
+              #App #popUp3 .wrap .d2 > ul > li > div:last-child > div:first-child > div:first-child > span span {
+                color: #ff0000; }
             #App #popUp3 .wrap .d2 > ul > li > div:last-child > div:first-child > div:last-child {
               font-size: 0.22rem;
               color: #888888; }
@@ -478,6 +506,12 @@ body {
         font-size: 0.24rem;
         color: #999999;
         padding: 0.2rem 0; }
+    #App #popUp3 .close {
+      width: 0.8rem;
+      height: 0.8rem;
+      margin-top: 0.5rem;
+      background: url("../img/icon12.png") no-repeat;
+      background-size: 100% 100%; }
   #App #successPage {
     position: relative;
     display: flex;
@@ -681,7 +715,7 @@ body {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center; }
     #App #maskInvite > div {
@@ -709,7 +743,7 @@ body {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center; }
     #App #maskErWei > div {
@@ -899,7 +933,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center; }
     #App #mask1 > div {
