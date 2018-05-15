@@ -65,7 +65,7 @@ function getTime(value) {
     var value = value;
     var startDate = new Date(value).getTime();
     var endDate = startDate+86400000;
-    return endDate
+    return startDate
 }
 //倒计时函数
 function countDown(value,that) {
@@ -79,8 +79,12 @@ function countDown(value,that) {
         s = Math.floor(time/1000%60);
         ms = Math.floor(parseInt(strTime.substr(-3,1)));
         that.time = h+':'+min+':'+s+':'+ms
-        if(h<0){
-            clearInterval(that.timer1)
+        if(h<=0 && min<=0 && s<=0 && ms==1){
+            clearInterval(that.timer1);
+            setTimeout(function () {
+                that.time = 0+':'+0+':'+0+':'+0
+            },100);
+            return
         }
     }
 }

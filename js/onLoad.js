@@ -117,8 +117,15 @@ var App = new Vue({
             },1000)
             const that = this
             //调用自定义getTime方法获取结束时间
-            var endDate = getTime('2018/05/15 09:00:00');
-            that.timer1 = setInterval(countDown(endDate,that),100)
+            var endDate = getTime('2018/05/15 15:44:30');
+            //获取现在时间
+            var nowDate = new Date().getTime();
+            //判断是否过期
+            if(endDate-nowDate>0){
+                that.timer1 = setInterval(countDown(endDate,that),100)
+            }else{
+                that.time = 0+':'+0+':'+0+':'+0;
+            }
         })
     }
 })
