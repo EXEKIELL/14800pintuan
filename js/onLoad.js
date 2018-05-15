@@ -116,6 +116,7 @@ var App = new Vue({
                 },2500)
             },1000)
             const that = this
+            //调用自定义getTime方法获取结束时间
             var endDate = getTime('2018/05/15 09:00:00');
             that.timer1 = setInterval(function () {
                 var date = new Date().getTime();

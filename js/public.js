@@ -45,56 +45,7 @@ function saveImageInfo(id) {
     $('.showImg>img').attr('src',image);
 }
 
-function countDown(h,min,s,ms,that) {
-   return function () {
-       if(h>10&&min>10&&s>10){
-           that.time = h+':'+min+':'+s+':'+ms
-       }else if(h>10&&min>10&&s<10){
-           that.time = h+':'+min+':'+'0'+s+':'+ms
-       }else if(h>10&&min<10&&s>10){
-           that.time = h+':'+'0'+min+':'+s+':'+ms
-       }else if(h<10&&min>10&&s>10){
-           that.time = '0'+h+':'+min+':'+s+':'+ms
-       }else if(h<10&&min<10&&s<10){
-           that.time = '0'+h+':'+'0'+min+':'+'0'+s+':'+ms
-       }else if(h<10&&min>10&&s<10){
-           that.time = '0'+h+':'+min+':'+'0'+s+':'+ms
-       }else if(h<10&&min<10&&s>10){
-           that.time = '0'+h+':'+'0'+min+':'+s+':'+ms
-       }else{
-           that.time = h+':'+'0'+min+':'+'0'+s+':'+ms
-       }
-       // if(s<10){
-       //     that.time = h+':'+min+':'+'0'+s+':'+ms
-       // }else{
-       //
-       // }
-       // if(min<10){
-       //     that.time = h+':'+'0'+min+':'+s+':'+ms
-       // }
-       // that.time = h+':'+min+':'+s+':'+ms
-       if(ms>0){
-           ms--;
-       }else{
-           ms = 9;
-           if(s>0){
-               s--;
-           }else{
-               s = 59;
-               if(min>0){
-                   min--;
-               }else{
-                   min = 59
-                   if(h>0){
-                       h--;
-                   }else{
-                       clearInterval(that.timer1)
-                   }
-               }
-           }
-       }
-   }
-}
+
 
 var mo=function(e){e.preventDefault()};
 
@@ -109,7 +60,7 @@ function move(){
     document.body.style.overflow='';//出现滚动条
     document.removeEventListener("touchmove",mo,false);
 }
-
+//获取结束时间
 function getTime(value) {
     var value = value;
     var startDate = new Date(value).getTime();
