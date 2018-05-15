@@ -118,20 +118,7 @@ var App = new Vue({
             const that = this
             //调用自定义getTime方法获取结束时间
             var endDate = getTime('2018/05/15 09:00:00');
-            that.timer1 = setInterval(function () {
-                var date = new Date().getTime();
-                var time = endDate - date;
-                var strTime = time+'';
-                var h,min,s,ms;
-                h = Math.floor(time/1000/60/60%24);
-                min = Math.floor(time/1000/60%60);
-                s = Math.floor(time/1000%60);
-                ms = Math.floor(parseInt(strTime.substr(-3,1)));
-                that.time = h+':'+min+':'+s+':'+ms
-                if(h<0){
-                    clearInterval(that.timer1)
-                }
-            },100)
+            that.timer1 = setInterval(countDown(endDate,that),100)
         })
     }
 })
