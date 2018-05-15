@@ -109,3 +109,12 @@ function move(){
     document.body.style.overflow='';//出现滚动条
     document.removeEventListener("touchmove",mo,false);
 }
+
+function getTime(value) {
+    var value = value;
+    var startDate = new Date(value).getTime();
+    var endDate = startDate+86400000;
+    return endDate
+}
+
+
